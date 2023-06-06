@@ -1,0 +1,55 @@
+@import '@/uni_modules/uview-ui/theme.scss';
+
+$brand-theme-color:#EC544F;      //品牌主体红色
+$brand-theme-color-aux:#576b95;  //品牌辅助色
+$page-bg-color:#F7F7F7;          //页面背景色
+$border-color:#e0e0e0;           //边框颜色
+$border-color-light:#efefef;     //边框亮色
+
+
+$text-font-color-1:#000;         //文字主色
+$text-font-color-2:#676767;      //副标题颜色
+$text-font-color-3:#a7a7a7;      //浅色
+
+// 弹性窗
+@mixin flex-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@mixin flex-box-set($justify-c: center, $align-i: center) {
+  @include flex-box();
+
+  @if $justify-c == center {
+    justify-content: center;
+  } @else if $justify-c == start {
+    justify-content: flex-start;
+  } @else if $justify-c == end {
+    justify-content: flex-end;
+  } @else if $justify-c == between {
+    justify-content: space-between;
+  } @else if $justify-c == around {
+    justify-content: space-around;
+  }
+
+  @if $align-i == center {
+    align-items: center;
+  } @else if $align-i == start {
+    align-items: flex-start;
+  } @else if $align-i == end {
+    align-items: flex-end;
+  } @else if $align-i == stretch {
+    align-items: stretch;
+  }
+}
+
+@mixin ellipsis($row:1){
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;				//溢出内容隐藏
+	text-overflow: ellipsis;		//文本溢出部分用省略号表示
+	display: -webkit-box;			//特别显示模式
+	-webkit-line-clamp: $row;			//行数
+	line-clamp: $row;					
+	-webkit-box-orient: vertical;	//盒子中内容竖直排列	
+}
